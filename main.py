@@ -13,6 +13,9 @@ from config import TOKEN
 
 dp = Dispatcher()
 
+@dp.message(CommandStart())
+async def send_welcome(message: Message) -> None:
+    await message.reply("Привет!")
 
 async def main() -> None:
     bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
